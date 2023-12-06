@@ -42,12 +42,13 @@ body{
   }
   
   .closeIcon {
-    position: absolute;
-    left: 5px;
-    top: 50%;
-    cursor: pointer;
-    display: none;
+    width: 28px;
+    position: relative;
+    right: 20rem;
+    top: 5px;
+    cursor: pointer; 
   }
+  
   
   .add-task-btn {
     padding: 5px;
@@ -65,4 +66,7 @@ body{
   
   .search-box.focused + .closeIcon {
     display: block;
+  }
+  .close-btn{
+    all: unset;
   }

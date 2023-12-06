@@ -8,20 +8,27 @@ import closeIcon from "../assets/icons/closeIcon.svg";
 
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
-  const searchInputRef = useRef();
+  const [isFocused, inputIsFocused] = useState(false);
+  const searchInputRef = useRef(null);
 
   const handleFocus = () => {
-    setIsFocused(true);
+    inputIsFocused(true);
   };
 
  
   const handleClear = () => {
     setSearchValue('');
+    if (searchInputRef.current){
+       searchInputRef.current.focus(); 
+    }
   };
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
+  };
+
+  const handleFocusOut =() =>{
+    inputIsFocused(false);
   };
 
 
@@ -34,18 +41,19 @@ const SearchInput = () => {
         className="searchIcon"
         />
       <input
-        ref={searchInputRef}
+        useRef={searchInputRef}
         type="text"
         value={searchValue}
         onChange={handleChange}
         onFocus={handleFocus}
+        onBlur={handleFocusOut}
         placeholder="Filter By Description"
         className='search-input'
       />
       {searchValue && (
         <button
-        ref={closeIcon} 
-        className="close-btn" 
+        useRef={closeIcon} 
+        className={`close-btn ${isFocused ?  'visible' : ''}`}
         onClick={handleClear}
         >
           <img
