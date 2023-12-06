@@ -10,21 +10,24 @@
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
 }
-/* body{
-   
-} */
+body{
+  width: min(95%, 90%); 
+  margin: auto;
+  
+}
 
 
 .search-box {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
   }
   
   .search-input {
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     outline: none;
     width: 500px;
     height: 40px;
@@ -46,8 +49,7 @@
   }
   
   .add-task-btn {
-    margin-left: 18px;
-    padding: 8px;
+    padding: 5px;
     font-size: 16px;
     background-color: var(--bg-color) ;
     color: #fff; 
